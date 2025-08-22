@@ -1,0 +1,33 @@
+### Register a new user
+POST http://127.0.0.1:8000/api/accounts/register/
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "password": "mypassword123"
+}
+
+
+### Login with the user
+POST http://127.0.0.1:8000/api/accounts/login/
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "mypassword123"
+}
+
+### Get user profile (replace {{token}} after login)
+GET http://127.0.0.1:8000/api/accounts/profile/
+Authorization: Token 123abc456def789ghi
+
+### Update user profile
+PUT http://127.0.0.1:8000/api/accounts/profile/
+Content-Type: application/json
+Authorization: Token 123abc456def789ghi
+
+{
+  "bio": "Hello world! I love Django REST 🚀",
+  "email": "newemail@example.com"
+}

@@ -1,0 +1,93 @@
+{
+  "info": {
+    "name": "Social Media API",
+    "_postman_id": "12345-67890-abcdef",
+    "description": "Postman collection for testing Django Social Media API (accounts app)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"testuser\",\n    \"email\": \"test@example.com\",\n    \"password\": \"mypassword123\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/accounts/register/",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api", "accounts", "register", ""]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"testuser\",\n    \"password\": \"mypassword123\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/accounts/login/",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api", "accounts", "login", ""]
+        }
+      }
+    },
+    {
+      "name": "Get Profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Token {{auth_token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/accounts/profile/",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api", "accounts", "profile", ""]
+        }
+      }
+    },
+    {
+      "name": "Update Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Token {{auth_token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"bio\": \"Hello world! I love Django REST 🚀\",\n    \"email\": \"newemail@example.com\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/accounts/profile/",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["api", "accounts", "profile", ""]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "auth_token",
+      "value": ""
+    }
+  ]
+}
